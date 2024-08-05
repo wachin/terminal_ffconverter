@@ -1,11 +1,13 @@
 # Terminal FFmpeg Video Converter Script 
-This script requires **ffmpeg, python**
+El script requiere: **ffmpeg, python**
 
-Probado en:
+## Probado en:
 
-**Debian 12**
+- Debian 12
 
-Explicación del funcionamiento del script:
+  
+
+## Explicación del funcionamiento del script:
 
 1. Definición del directorio del script:
    ```bash
