@@ -5,7 +5,53 @@ El script requiere: **ffmpeg, python**
 
 - Debian 12
 
-  
+# "Interfaz gráfica de Texto" para convertir videos con ffmpeg desde la terminal
+
+Este scritp para uso desde la terminal requiere ffmpeg y bash
+
+1. Abre una terminal.
+
+2. Actualiza la lista de paquetes de tu sistema:
+
+```
+sudo apt update
+```
+
+Instala los paquetes:
+
+```
+sudo apt install ffmpeg bash
+```
+
+Después de instalar estos paquetes, deberías poder ejecutar el script sin problemas.
+
+Para lanzar el programa ponga en una terminal en el lugar donde está el programa:
+
+```
+bash ./terminal_ffconverter.sh
+```
+
+ ![](vx_images/01_exec_terminal_ffconverter.sh.png)
+
+aquí en la carpeta del proyecto he dejado el siguiente ejemplo a convertir:
+
+Te pido la paz - Jaime Murrell.mp4
+
+en la terminal aparecerá así:
+
+![](vx_images/02_choose_the_video.png)
+
+como solo es un video de ejemplo aparece sólo este, y en el teclado aplasto la tecla "1" y doy Enter y sigue así:
+
+![](vx_images/03_elija-el-tipo-de-conversion-que-desea.png)
+
+allí elija el tipo de conversión que desea
+
+**Nota:** Si elije la conversión avanzada debe escribir el tipo de archivo de salida que necesita
+
+El resultado de su conversión estará en la carpeta:
+
+ffmpeg_output
 
 ## Explicación del funcionamiento del script:
 
