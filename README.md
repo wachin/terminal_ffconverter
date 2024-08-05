@@ -1,40 +1,47 @@
-# Termux Converter Script
-Termux Converter Script
-This script requires **ffmpeg, python, wget** to function.
+# Terminal FFmpeg Video Converter Script 
+This script requires **ffmpeg, python**
 
-![screenshot.png](/screenshot.png)
+Probado en:
 
-# Using the script
-Launch the "share" option and select Termux.
+**Debian 12**
 
-![share_icon.jpg](/share_icon.jpg)
+Explicación del funcionamiento del script:
 
+1. Definición del directorio del script:
+   ```bash
+   SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+   ```
+   Esta línea obtiene la ruta absoluta del directorio donde se encuentra el script.
 
-# Installing the script
-Launch Termux and run the follwing commands:
-```
-#!/bin/bash
-#Clean Install
-rm "./bin/termux-file-editor"
-mkdir bin
-#Installing dependencies
-pkg update -y && pkg install wget -y && pkg install python -y && pkg install ffmpeg -y
-#Installing the script
-wget -P "./bin/" --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/termux_converter/master/termux-file-editor" 
-chmod +x "./bin/termux-file-editor"
-termux-setup-storage
-```
-Or simply run this
-```
-wget --no-check-certificate "https://raw.githubusercontent.com/M3GABOY/termux_converter/master/install.sh" && chmod +x install.sh && bash install.sh
-```
+2. Función `check_video_files()`:
+   - Busca archivos de video en el directorio actual.
+   - Muestra una lista numerada de los archivos encontrados.
+   - Permite al usuario seleccionar un archivo para convertir.
 
-# FAQ
-This script is blank sensitive. Therefore option "1" and "1 " are treated differently. While "1" will launch option 3, "1 " is invalid and will launch the default option.
+3. Inicio del script principal:
+   - Muestra el título y la fecha de actualización.
+   - Llama a la función `check_video_files()`.
 
-# Changelog
-```
-Created Jun 14 2020
+4. Menú principal:
+   - Muestra las opciones de conversión (mp4, mp3, avanzada).
+   - Lee la selección del usuario.
 
-```
+5. Preparación para la conversión:
+   - Extrae el nombre del archivo sin la extensión.
+   - Define el directorio de salida.
+   - Crea el directorio de salida si no existe.
 
+6. Proceso de conversión:
+   - Opción 1 (Convertir a mp4):
+     * Muestra opciones de calidad de video.
+     * Ejecuta ffmpeg con los parámetros correspondientes a la calidad seleccionada.
+   - Opción 2 (Convertir a mp3):
+     * Muestra opciones de calidad de audio.
+     * Ejecuta ffmpeg para convertir a mp3 con la calidad seleccionada.
+   - Opción 3 (Conversión avanzada):
+     * Permite al usuario especificar el formato de salida.
+     * Ejecuta ffmpeg con el formato especificado.
+
+7. Finalización:
+
+   - Muestra un mensaje indicando que la conversión ha terminado y dónde se han guardado los archivos.
